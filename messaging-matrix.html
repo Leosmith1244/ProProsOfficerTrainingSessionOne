@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messaging Matrix | PR Pros Toastmasters</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* === TOASTMASTERS BRAND COLORS === */
+    :root {
+      --maroon: #772432;
+      --blue: #004165;
+      --gray: #A9B2B1;
+      --yellow: #F2DF74;
+      --white: #FFFFFF;
+      --black: #000000;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--black);
+      margin: 0;
+      padding: 0;
+      background: var(--white);
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--blue);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 65, 101, 0.8), rgba(0, 65, 101, 0.8)), 
+                  url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      color: var(--blue);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: var(--yellow);
+      margin: 1rem auto;
+    }
+
+    /* Training Modules */
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .module-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .module-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .module-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .module-content {
+      padding: 1.5rem;
+    }
+
+    .module-content h3 {
+      color: var(--maroon);
+      margin-top: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--blue);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--yellow);
+    }
+
+    /* Individual Training Pages */
+    .training-hero {
+      background: linear-gradient(rgba(119, 36, 50, 0.8), rgba(119, 36, 50, 0.8)), 
+                  url('https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .training-content {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .training-content h2 {
+      color: var(--blue);
+    }
+
+    .training-content h3 {
+      color: var(--maroon);
+    }
+
+    .training-content ul {
+      margin-left: 1.5rem;
+    }
+
+    .training-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .training-content table, .training-content th, .training-content td {
+      border: 1px solid var(--gray);
+    }
+
+    .training-content th {
+      background: var(--blue);
+      color: white;
+      padding: 0.5rem;
+    }
+
+    .training-content td {
+      padding: 0.5rem;
+    }
+
+    .training-content tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">PR Pros Toastmasters</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="welcome.html">Welcome</a>
+        <a href="keynote.html">Keynote</a>
+        <a href="pr-spotlight.html">PR Spotlight</a>
+        <a href="vppr-breakout.html">VPPR Breakout</a>
+        <a href="messaging-matrix.html">Messaging Matrix</a>
+        <a href="wrap-up.html">Wrap-Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="training-hero">
+    <div class="hero-content">
+      <h1>Club Messaging Matrix</h1>
+      <p>Create a branding plan to make your club irresistible to members and guests</p>
+    </div>
+  </section>
+
+  <div class="training-content">
+    <h2>Club Messaging Matrix (1:10–1:25)</h2>
+    
+    <h3>Introduction</h3>
+    <p>What makes your club stand out? Is it your vibrant community, professional focus, or fun meetings? Your club's brand is its heartbeat, and as officers, you shape it. Let's create a Club Messaging Matrix to make your club irresistible to members and guests.</p>
+    
+    <h3>Purpose</h3>
+    <p>I'll guide you through building a simple matrix to define your club's identity and outreach plan, ensuring your messages shine on X, flyers, and beyond.</p>
+    
+    <h3>Supporting Points</h3>
+    <p>1. <strong>Define Your Core Message</strong><br>
+    Answer: Who are we? Who's our audience? For example, my club's message is "Empowering professionals to speak with confidence." We target young workers via LinkedIn. A 2024 survey showed clubs with clear brands attract 25% more guests.</p>
+    
+    <p>2. <strong>Choose Your Channels</strong><br>
+    Pick 2–3 platforms: X for quick updates, flyers for local events, or email for member updates. Our club's X post about a speech contest got 30 retweets and 5 guests. Start small—track likes or RSVPs as wins.</p>
+    
+    <p>3. <strong>Craft Consistent Messages</strong><br>
+    Use a matrix: Core message, channel, frequency. Example: "Post 'Join our speech contest!' on X weekly." Consistency builds recognition. In District 106, a club's consistent branding doubled guest turnout in six months.</p>
+    
+    <h3>Conclusion and Call to Action</h3>
+    <p>Your club's brand is its voice. Build a Messaging Matrix today to attract and retain members. Your challenge: Draft your matrix now, and bring a PR calendar to our August training. Let's make your club the talk of the town!</p>
+    
+    <h3>Club Messaging Matrix Template</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Core Message</th>
+          <th>Target Audience</th>
+          <th>Channel</th>
+          <th>Frequency</th>
+          <th>Success Metric</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>e.g., Empower professionals to speak with confidence</td>
+          <td>Young professionals</td>
+          <td>X, LinkedIn</td>
+          <td>Weekly posts</td>
+          <td>2 guests/month</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Instructions</strong>: Fill one row with your club's branding plan. Be specific and measurable.</p>
+    
+    <h3>Activity: Matrix Masterpiece</h3>
+    <p>Form groups to fill a matrix. One VPPR presents it at the front, explaining the plan. Audience claps for the most creative matrix.</p>
+    
+    <a href="wrap-up.html" class="btn">Next: Wrap-Up</a>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.toastmasters.org/">Toastmasters International</a>
+      <a href="https://www.toastmasters.org/resources/club-leadership-handbook">Club Leadership Handbook</a>
+      <a href="https://www.toastmasters.org/resources/brand-manual">Brand Manual</a>
+    </div>
+    <p>&copy; 2025 PR Pros Toastmasters. All rights reserved.</p>
+  </footer>
+</body>
+</html>
