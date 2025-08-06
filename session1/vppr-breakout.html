@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPPR Breakout | PR Pros Toastmasters</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* === TOASTMASTERS BRAND COLORS === */
+    :root {
+      --maroon: #772432;
+      --blue: #004165;
+      --gray: #A9B2B1;
+      --yellow: #F2DF74;
+      --white: #FFFFFF;
+      --black: #000000;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--black);
+      margin: 0;
+      padding: 0;
+      background: var(--white);
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--blue);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 65, 101, 0.8), rgba(0, 65, 101, 0.8)), 
+                  url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      color: var(--blue);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: var(--yellow);
+      margin: 1rem auto;
+    }
+
+    /* Training Modules */
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .module-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .module-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .module-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .module-content {
+      padding: 1.5rem;
+    }
+
+    .module-content h3 {
+      color: var(--maroon);
+      margin-top: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--blue);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--yellow);
+    }
+
+    /* Individual Training Pages */
+    .training-hero {
+      background: linear-gradient(rgba(119, 36, 50, 0.8), rgba(119, 36, 50, 0.8)), 
+                  url('https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .training-content {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .training-content h2 {
+      color: var(--blue);
+    }
+
+    .training-content h3 {
+      color: var(--maroon);
+    }
+
+    .training-content ul {
+      margin-left: 1.5rem;
+    }
+
+    .training-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .training-content table, .training-content th, .training-content td {
+      border: 1px solid var(--gray);
+    }
+
+    .training-content th {
+      background: var(--blue);
+      color: white;
+      padding: 0.5rem;
+    }
+
+    .training-content td {
+      padding: 0.5rem;
+    }
+
+    .training-content tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">PR Pros Toastmasters</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="welcome.html">Welcome</a>
+        <a href="keynote.html">Keynote</a>
+        <a href="pr-spotlight.html">PR Spotlight</a>
+        <a href="vppr-breakout.html">VPPR Breakout</a>
+        <a href="messaging-matrix.html">Messaging Matrix</a>
+        <a href="wrap-up.html">Wrap-Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="training-hero">
+    <div class="hero-content">
+      <h1>VPPR Role Breakout</h1>
+      <p>Dive into VPPR duties and learn to promote your club effectively</p>
+    </div>
+  </section>
+
+  <div class="training-content">
+    <h2>VPPR Role Breakout (0:40–1:10)</h2>
+    
+    <p>Dive into VPPR duties: promote the club, manage social media, create newsletters, and host events. Learn to use Canva, X, and track metrics like guest attendance.</p>
+    
+    <h3>Key Responsibilities</h3>
+    <ul>
+      <li>Post weekly on X with #Toastmasters.</li>
+      <li>Create flyers using Canva for events.</li>
+      <li>Track 1–2 guests per event as success.</li>
+    </ul>
+    
+    <h3>Activity: PR Mini-Campaign</h3>
+    <p>Draft a campaign idea (e.g., weekly X posts) and present it at the front. Audience suggests tweaks. Practice pitching to your club.</p>
+    
+    <h3>Officer Role Breakout Guide</h3>
+    
+    <h4>Overview (5 minutes per group)</h4>
+    <p>Facilitators use the <em>Club Leadership Handbook</em> to outline duties:</p>
+    <ul>
+      <li><strong>President</strong>: Sets tone, leads DCP planning, represents club at Area/District Councils.</li>
+      <li><strong>VP Education</strong>: Schedules speeches, tracks Pathways, mentors members.</li>
+      <li><strong>VP Membership</strong>: Recruits guests, follows up on applications.</li>
+      <li><strong>VP Public Relations</strong>: Promotes club via social media, events.</li>
+      <li><strong>Secretary</strong>: Keeps records, submits reports.</li>
+      <li><strong>Treasurer</strong>: Manages dues, budgets (e.g., submit to World Headquarters by September 30).</li>
+      <li><strong>Sergeant at Arms</strong>: Prepares meeting space, manages property.</li>
+    </ul>
+    
+    <h4>Q&A and Tips (20 minutes)</h4>
+    <ul>
+      <li>Facilitator poses questions: "What's your biggest challenge?" "How can you support DCP goals?"</li>
+      <li>Example: VP Education group discusses scheduling new members first.</li>
+      <li>Share resources: <em>Club Central</em> for tracking, <em>Leader Letter</em> for updates.</li>
+    </ul>
+    
+    <h4>Mentorship (5 minutes)</h4>
+    <ul>
+      <li>Pair new officers with experienced ones for quick advice (e.g., "How do I motivate shy members?").</li>
+      <li>Hand out role-specific checklists from the <em>Club Leadership Handbook</em>.</li>
+    </ul>
+    
+    <h4>Materials</h4>
+    <ul>
+      <li><a href="https://www.toastmasters.org/resources/club-leadership-handbook">Club Leadership Handbook</a></li>
+      <li>Role checklists (PDF or printed), notepads, pens.</li>
+    </ul>
+    
+    <a href="messaging-matrix.html" class="btn">Next: Messaging Matrix</a>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.toastmasters.org/">Toastmasters International</a>
+      <a href="https://www.toastmasters.org/resources/club-leadership-handbook">Club Leadership Handbook</a>
+      <a href="https://content.toastmasters.org/image/upload/02330-001-0001-brand-manual.pdf">Brand Manual</a>
+    </div>
+    <p>&copy; 2025 PR Pros Toastmasters. All rights reserved.</p>
+  </footer>
+</body>
+</html>
