@@ -3,21 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PR Pros Toastmasters Training</title>
+  <title>PR Pros Toastmasters - Officer Training Portal</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="/assets/css/styles.css"> 
- <style>
-   
+  <style>
+    /* === TOASTMASTERS BRAND COLORS === */
+    :root {
+      --maroon: #772432;
+      --blue: #004165;
+      --gray: #A9B2B1;
+      --yellow: #F2DF74;
+      --white: #FFFFFF;
+      --black: #000000;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: var(--white);
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 65, 101, 0.9), rgba(0, 65, 101, 0.9)), 
+                  url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 8rem 1rem;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .training-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .training-card {
+      background: rgba(255,255,255,0.15);
+      border: 3px solid var(--yellow);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: all 0.4s;
+      color: white;
+      text-decoration: none;
+      backdrop-filter: blur(5px);
+    }
+
+    .training-card:hover {
+      background: var(--yellow);
+      color: var(--black);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .training-card h2 {
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .training-card p {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--blue);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--yellow);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 5rem 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .training-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>PR Pros Club Officer Training</h1>
+      <h1>PR Pros Toastmasters Club Officer Training</h1>
+      
       <div class="training-grid">
+        <!-- Session 1 Card -->
         <a href="session1/index.html" class="training-card">
           <h2>Session 1: July 17</h2>
           <p>Branding & Retention Foundations</p>
         </a>
+        
+        <!-- Session 2 Card -->
         <a href="session2/index.html" class="training-card">
           <h2>Session 2: August 21</h2>
           <p>Strategic Planning & Digital Mastery</p>
@@ -25,5 +154,15 @@
       </div>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.toastmasters.org/">Toastmasters International</a>
+      <a href="https://www.toastmasters.org/resources/club-leadership-handbook">Club Leadership Handbook</a>
+      <a href="https://content.toastmasters.org/image/upload/02330-001-0001-brand-manual.pdf">Brand Manual</a>
+    </div>
+    <p>&copy; 2025 PR Pros Toastmasters. All rights reserved.</p>
+  </footer>
 </body>
 </html>
