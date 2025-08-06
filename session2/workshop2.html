@@ -209,6 +209,34 @@
         font-size: 2.5rem;
       }
     }
+	/* === SHARED STYLES === */
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: var(--black);
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+}
+
+/* Add ALL your CSS here (nav, hero, modules, etc) */
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.training-card {
+  background: rgba(255,255,255,0.1);
+  border: 2px solid var(--yellow);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s;
+  color: white;
+  text-decoration: none
+	
   </style>
 </head>
 <body>
@@ -225,11 +253,9 @@
         <a href="walkthrough2.html">TI Walkthrough</a>
         <a href="breakouts2.html">Plan Breakouts</a>
         <a href="wrapup2.html">Wrap-Up</a>
-		<a href="/session1/index.html">Session 1</a>
-      </div>
+		</div>
     </div>
   </nav>
-
   <section class="training-hero">
     <div class="hero-content">
       <h1>PR Calendar Planning</h1>
