@@ -1,4 +1,4 @@
-# ProProsOfficerTrainingSessionOne - District 106 Toastmasters Officer Training
+# ProProsOfficerTraining - District 106 Toastmasters Officer Training
 
 Welcome to **ProProsOfficerTrainingSessionOne**, the official repository for the first session of District 106 Toastmasters' Club Officer Training for the 2025-2026 term! Led by Leo Smith, DTM, this training empowers club officers to lead with confidence, foster vibrant clubs, and drive success in their Toastmasters journey. This repository provides resources, agendas, and materials for Session 1 of the *PR Pros Officer Training Series*, designed to equip officers with the tools to excel in their roles and inspire their clubs.
 
